@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristina | Técnico de Informática CV4</title>
+
+    <style>
+       
+        :root {
+            --cor-fundo: rgb(12, 12, 12);         /* Preto asfalto */
+            --cor-cartao: #1d1c20;        /* Cinza escuro fibra de carbono */
+            --cor-verde: rgb(60, 183, 89);         /* Verde Viper principal */
+            --cor-verde-neon: #14ff66;    /* Verde néon brilhante */
+            --cor-texto: #5050aa;         /* Branco suave para leitura */
+            --cor-texto-secundario: #668695;
+            --cor-borda: #4747ba;
+        }
+
+        /* =========================================================
+           2. ESTILOS GERAIS E RESET SIMPLES
+        ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+
+        /* Container central para alinhar todo o conteúdo */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           3. CABEÇALHO E MENU DE NAVEGAÇÃO
+        ========================================================= */
+        header {
+            background-color: var(--cor-cartao);
+            border-bottom: 2px solid var(--cor-verde);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-barra {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 65px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--cor-texto);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--cor-verde);
+        }
+
+        .menu-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-links a {
+            color: var(--cor-texto);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu-links a:hover {
+            color: var(--cor-verde-neon);
+        }
+
+        .btn-menu-mobile {
+            display: none;
+            background: none;
+            border: 1px solid var(--cor-vermelho);
+            color: var(--cor-vermelho);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           4. SECÇÃO INICIAL (APRESENTAÇÃO / HERO)
+        ========================================================= */
+        .hero {
+            padding: 60px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-texto {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .etiqueta-cv4 {
+            display: inline-block;
+            background-color: rgba(76, 230, 25, 0.15);
+            color: var(--cor-verde);
+            border: 1px solid var(--cor-verde);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero-texto h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-texto h1 span {
+            color: var(--cor-verde-neon);
+        }
+
+        .hero-texto p {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .botoes-hero {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-principal {
+            background-color: var(--cor-verde);
+            color: #0a0d0b;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-principal:hover {
+            background-color: var(--cor-verde-neon);
+        }
+
+        .btn-secundario {
+            background-color: transparent;
+            color: var(--cor-texto);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: 1px solid var(--cor-verde);
+            transition: background-color 0.3s;
+        }
+
+        .btn-secundario:hover {
+            background-color: rgba(76, 230, 25, 0.1);
+        }
+
+        /* Círculo de Perfil */
+        
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--cor-cartao);
+            border: 3px solid var(--cor-verde);
+            box-shadow: 0 0 20px rgba(76, 230, 25, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .hero-avatar strong {
+            font-size: 3.5rem;
+            color: var(--cor-verde);
+            line-height: 1;
+        }
+
+        .hero-avatar span {
+            font-size: 0.85rem;
+            color: var(--cor-texto-secundario);
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================================
+           5. ESTILO PADRÃO DAS SECÇÕES E CARTÕES
+        ========================================================= */
+        section {
+            padding: 50px 0;
+            border-top: 1px solid var(--cor-borda);
+        }
+
+        .titulo-seccao {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--cor-texto);
+            border-left: 4px solid var(--cor-verde);
+            padding-left: 12px;
+        }
+
+        .subtitulo-seccao {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 30px;
+        }
+
+        /* Grelha simples para cartões (Habilidades e Projetos) */
+        .grelha {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .cartao {
+            background-color: var(--cor-cartao);
+            border: 1px solid var(--cor-borda);
+            border-radius: 10px;
+            padding: 22px;
+            transition: border-color 0.3s;
+        }
+
+        .cartao:hover {
+            border-color: var(--cor-verde);
+        }
+
+        .cartao h3 {
+            color: var(--cor-verde);
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .cartao p {
+            color: var(--cor-texto-secundario);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================================
+           6. SECÇÃO SOBRE MIM (INFORMAÇÕES TÉCNICAS)
+        ========================================================= */
+        .caixa-sobre {
+            background-color: var(--cor-cartao);
+            border: 1px solid var(--cor-borda);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .caixa-sobre p {
+            margin-bottom: 15px;
+            color: var(--cor-texto-secundario);
+        }
+
+        .lista-dados {
+            list-style: none;
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .lista-dados li {
+            background-color: var(--cor-fundo);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 3px solid var(--cor-verde);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           7. FORMULÁRIO DE CONTACTO SIMPLES
+        ========================================================= */
+        .formulario-contacto {
+            background-color: var(--cor-cartao);
+            border: 1px solid var(--cor-borda);
+            border-radius: 10px;
+            padding: 25px;
+            max-width: 600px;
+        }
+
+        .campo {
+            margin-bottom: 15px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: var(--cor-fundo);
+            border: 1px solid var(--cor-borda);
+            border-radius: 6px;
+            color: var(--cor-texto);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .campo input:focus,
+        .campo textarea:focus {
+            outline: none;
+            border-color: var(--cor-texto-secundario);
+        }
+
+        /* Caixa de resposta do formulário (substitui o alert) */
+        .mensagem-resposta {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: rgba(76, 230, 25, 0.15);
+            border: 1px solid var(--cor-verde);
+            color: var(--cor-verde-neon);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           8. RODAPÉ
+        ========================================================= */
+        footer {
+            background-color: var(--cor-cartao);
+            border-top: 1px solid var(--cor-borda);
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            color: var(--cor-texto-secundario);
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--cor-verde);
+            font-weight: bold;
+        }
+
+        /* =========================================================
+           9. RESPONSIVIDADE (TELEMÓVEIS E ECRÃS PEQUENOS)
+        ========================================================= */
+        @media (max-width: 700px) {
+            .btn-menu-mobile {
+                display: block;
+            }
+
+            .menu-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--cor-cartao);
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                border-bottom: 2px solid var(--cor-verde);
+            }
+
+            .menu-links.ativo {
+                display: flex;
+            }
+
+            .hero-texto h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Detalhe visual inspirado nas faixas do Dodge Viper -->
+    <div class="faixas-topo">
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- =========================================================
+         CABEÇALHO E MENU
+    ========================================================= -->
+    <header>
+        <div class="container nav-barra">
+            <a href="#inicio" class="logo">Cristina Boavida Gomes<span>.CV4</span></a>
+
+            <!-- Botão para abrir menu no telemóvel -->
+            <button id="btn-menu" class="btn-menu-mobile">☰ Menu</button>
+
+            <ul id="menu-lista" class="menu-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+    ========================================================= -->
+    <main class="container">
+
+        <!-- 1. Apresentação Inicial -->
+        <section id="inicio" class="hero" style="border-top: none;">
+            <div class="hero-texto">
+                <span class="etiqueta-cv4">Técnico de Informática • Nível CV4</span>
+                <h1>Olá, eu sou <span>Cristina Boavida Gomes</span></h1>
+                <p>
+                    Técnico formado no Certificado Vocacional 4 (CV4), com conhecimentos práticos em 
+                    Segurança dos computadores, redes básicas, suporte técnico e criação de páginas web.
+                </p>
+                <div class="botoes-hero">
+                    <a href="#projetos" class="btn-principal">Ver Meus Trabalhos</a>
+                    
+                </div>
+            </div>
+
+            <div class="hero-avatar">
+               <img src="1795072352936.jpg" alt="">
+            </div>
+        </section>
+
+        <!-- 2. Sobre Mim -->
+        <section id="sobre">
+            <h2 class="titulo-seccao">Sobre Mim</h2>
+            <p class="subtitulo-seccao">Resumo da minha formação técnica e objetivos profissionais.</p>
+
+            <div class="caixa-sobre">
+                <p>
+                    Sou um técnico de informática dedicado, com formação de nível <strong>CV4</strong>. 
+                    Tenho facilidade em diagnosticar problemas técnicos, montar e configurar equipamentos, 
+                    bem como desenvolver sites simples, rápidos e funcionais.
+                </p>
+                <p>
+                    Procuro sempre aplicar boas práticas de organização e manter-me atualizado nas ferramentas 
+                    de tecnologia para oferecer soluções eficientes no futuro.
+                </p>
+
+                <ul class="lista-dados">
+                    <li><strong>Nome:</strong> Cristina</li> 
+                    <li><strong>Qualificação:</strong> Certificado Vocacional 4 (CV4)</li>
+                    <li><strong>Área:</strong> Tecnologias de Informação</li>
+                    <li><strong>Localização:</strong> Boane</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Habilidades Técnicas de CV4 -->
+        <section id="habilidades">
+            <h2 class="titulo-seccao">Competências Técnicas</h2>
+            <p class="subtitulo-seccao">Áreas principais de atuação adquiridas na formação CV4.</p>
+
+            <div class="grelha">
+                <div class="cartao">
+                    <h3>Manutenção de Hardware</h3>
+                    <p>Montagem, limpeza, diagnóstico de avarias.</p>
+                </div>
+
+                
+
+                <div class="cartao">
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Criação de páginas web responsivas utilizando HTML5, CSS e JavaScript básico.</p>
+                </div>
+
+                <div class="cartao">
+                    <h3>Suporte Técnico & SO</h3>
+                    <p>Proteger o Computador de Tipos de Ataques na Rede.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projetos Práticos -->
+        <section id="projetos">
+            <h2 class="titulo-seccao">Projetos & Práticas</h2>
+            <p class="subtitulo-seccao">Exemplos de atividades e projetos desenvolvidos.</p>
+
+            <div class="grelha">
+                <article class="cartao">
+                    <h3>Portfólio Pessoal Web</h3>
+                    <p>
+                        Site criado do zero com HTML semântico, CSS puro com variáveis de cores e 
+                        JavaScript simples para navegação responsiva.
+                    </p>
+                </article>
+
+                <article class="cartao">
+                    <h3>Criação de uma Rede Local (LAN)</h3>
+                    <p>
+                        Montar uma rede local usado modelo OSI , resolução de problemas na rede 
+        
+                    </p>
+                </article>
+
+                <article class="cartao">
+                    <h3>Segurança dos Computadores</h3>
+                    <p>
+                        Instalação dos antivirus, copia de segurança, Cópia de Segurança de Ficheiros, O Firewall  
+
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. Contacto -->
+        <section id="contacto">
+            <h2 class="titulo-seccao">Contacto</h2>
+            <p class="subtitulo-seccao">Envie uma mensagem direta através do formulário abaixo.</p>
+
+            <form id="form-contacto" class="formulario-contacto">
+                <div class="campo">
+                    <label for="nome">Seu Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Seu Email:</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva a sua mensagem..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-principal">Enviar Mensagem</button>
+
+                <!-- Mensagem de confirmação exibida pelo JavaScript -->
+                <div id="resposta-form" class="mensagem-resposta"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         RODAPÉ
+    ========================================================= -->
+    <footer>
+        <div class="container">
+            <p>© 2026 <span>Cristina Boavida Gomes</span> • Técnico de Informática CV4. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT VANILLA SIMPLES
+    ========================================================= -->
+    <script>
+        // 1. Abrir e fechar o menu no telemóvel
+        const btnMenu = document.getElementById('btn-menu');
+        const menuLista = document.getElementById('menu-lista');
+
+        btnMenu.addEventListener('click', function () {
+            menuLista.classList.toggle('ativo');
+        });
+
+        // Fechar o menu mobile ao clicar num link
+        const linksMenu = menuLista.querySelectorAll('a');
+        linksMenu.forEach(function (link) {
+            link.addEventListener('click', function () {
+                menuLista.classList.remove('ativo');
+            });
+        });
+
+        // 2. Simulação simples de envio do formulário de contacto
+        const formContacto = document.getElementById('form-contacto');
+        const respostaForm = document.getElementById('resposta-form');
+
+        formContacto.addEventListener('submit', function (evento) {
+            evento.preventDefault(); // Evita recarregar a página
+
+            const nome = document.getElementById('nome').value;
+
+            respostaForm.textContent = 'Obrigado, ' + nome + '! A sua mensagem foi registada com sucesso.';
+            respostaForm.style.display = 'block';
+
+            formContacto.reset(); // Limpa os campos do formulário
+        });
+    </script>
+
+</body>
+</html>
